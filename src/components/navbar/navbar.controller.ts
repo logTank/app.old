@@ -1,16 +1,16 @@
 'use strict';
 
-module gulpAngular {
+module app {
 
-  export interface INavbarScope extends ng.IScope {
+  interface INavbarScope extends ng.IScope {
     date: Date
   }
 
   export class NavbarCtrl {
+    /* @ngInject */
     constructor ($scope: INavbarScope) {
       $scope.date = new Date();
     }
   }
 
-  NavbarCtrl.$inject = ['$scope'];
 }

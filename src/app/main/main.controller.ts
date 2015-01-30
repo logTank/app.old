@@ -1,7 +1,9 @@
+/// <reference path="../index.d.ts" />
+
 'use strict';
 
 module app {
-  class Thing {
+  export class Thing {
     public rank: number;
 
     constructor(
@@ -14,7 +16,7 @@ module app {
     }
   }
 
-  interface IMainScope extends ng.IScope {
+  export interface IMainScope extends ng.IScope {
     awesomeThings: Thing[]
   }
 

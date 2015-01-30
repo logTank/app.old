@@ -1,4 +1,4 @@
-/// <reference path="../../bower_components/dt-angular/angular.d.ts" />
+/// <reference path="./index.d.ts" />
 
 'use strict';
 
@@ -6,7 +6,7 @@ module app {
   angular.module('app', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ngMaterial'])
     .controller('MainCtrl', MainCtrl)
     .controller('NavbarCtrl', NavbarCtrl)
-    
+
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {

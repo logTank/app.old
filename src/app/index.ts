@@ -17,5 +17,12 @@ module app {
 
     $urlRouterProvider.otherwise('/');
   })
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryColor('blue-grey')
+      .accentColor('lime', {
+        'default': '500' // use shade 500 for default, and keep all other shades the same
+      });
+  });
 ;
 }

@@ -85,7 +85,7 @@ module app {
     ];
 
       $scope.awesomeThings = new Array<Thing>();
-
+      $scope['test'] = {title: 'asdf', email: 'abc@qwer'};
       awesomeThings.forEach(function(awesomeThing) {
         $scope.awesomeThings.push(new Thing(
           awesomeThing.title,

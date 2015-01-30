@@ -1,11 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
 
 html {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Roboto', serif;
 }
 
 [layout=row] {
   flex-direction: row;
+}
+
+h1,h2,h3,h4,h5,h6{
+  color:rgb(55, 55, 54);
+  text-transform:uppercase;
 }
 
 .browsehappy {
@@ -23,21 +28,33 @@ html {
   }
 }
 
-md-toolbar.md-default-theme {
-  background-color: black;
+// md-toolbar.md-default-theme {
+//   background-color: #607D8B;
+// }
+
+.navbar-brand{
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
 }
 
+.navbar-container{
+  padding-left:15px;
+  padding-right:15px;
+  color:#e4e4e4;
+}
+
+.container{
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
 section.jumbotron {
   margin-bottom: 30px;
   padding: 1px 30px;
-  background-color: #5aadbb;
   text-align: center;
-
-  color: white;
-
-  h1 {
-    font-size: 3em;
-  }
+  color:#e4e4e4;
 }
 
 .techs {
@@ -53,5 +70,99 @@ section.jumbotron {
     }
   }
 }
-// injector
-// endinjector
+
+.main-flex{
+  flex-direction: column;
+}
+
+.text-centre{
+  text-align:center;
+}
+
+.form-centre{
+  max-width: 864px;
+  margin: auto;
+}
+
+textarea.large-text{
+  resize:vertical;
+}
+
+.form-button{
+  padding-bottom: 26px;
+}
+
+.left-el{
+  margin-left:0 !important;
+}
+
+md-toolbar{
+  box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+footer,
+.navbar-container *{
+  color:#e4e4e4;
+}
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) { 
+
+  .container{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .navbar-brand{
+    float: left;
+    height: 30px;
+    padding: 15px 15px;
+  }
+
+  .lime-top-logo{
+    height:70px;
+  }
+
+  .navbar-container{
+    margin-bottom: 40px;
+  }
+
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+  .container{
+    width:750px;
+  }
+
+  .navbar-container{
+    margin-bottom: 60px;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+  .container{
+    width:970px;
+  }
+
+  .navbar-container{
+    margin-bottom: 60px;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+  .container{
+    width:1170px;
+  }
+
+  .navbar-container{
+    margin-bottom: 60px;
+  }
+}

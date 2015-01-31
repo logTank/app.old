@@ -17,12 +17,22 @@ module app {
   }
 
   export interface IMainScope extends ng.IScope {
-    awesomeThings: Thing[]
+    awesomeThings: Thing[];
+    isAuthenticated(): boolean;
+    emailLogin(): boolean;
   }
 
   export class MainCtrl {
     /* @ngInject */
-    constructor ($scope: IMainScope) {
+    constructor (private $scope: IMainScope, 
+                 private $window: ng.IWindowService, 
+                 private $rootScope: ng.IRootScopeService, 
+                 private $auth) {
+
+      $scope.isAuthenticated = () => {
+        return $auth.isAuthenticated();
+      };
+
       var awesomeThings = [
       {
         'title': 'AngularJS',

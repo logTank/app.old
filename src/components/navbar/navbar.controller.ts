@@ -1,8 +1,10 @@
+/// <reference path="../index.d.ts" />
+
 'use strict';
 
 module app {
 
-  interface INavbarScope extends ng.IScope {
+  export interface INavbarScope extends ng.IScope {
     date: Date
   }
 

@@ -1,58 +1,80 @@
 <div layout="vertical" class="main-flex" layout-fill>
   <header ng-include="'components/navbar/navbar.html'"></header>
   <div class="container">
-    <md-content>
-  <!--     <div class="techs" layout-align="center">
-        <md-card ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
-          <div class="thumbnail">
-            <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
-            <div class="caption">
-              <h3>{{awesomeThing.title}}</h3>
-              <p>{{awesomeThing.description}}</p>
-              <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
+    <div ng-if="isAuthenticated() && currentUser.username">
+      <md-content>
+    <!--     <div class="techs" layout-align="center">
+          <md-card ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
+            <div class="thumbnail">
+              <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
+              <div class="caption">
+                <h3>{{awesomeThing.title}}</h3>
+                <p>{{awesomeThing.description}}</p>
+                <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
+              </div>
+            </div>
+          </md-card>
+        </div> -->
+        <p>User is authenticated via Email or OAuth 2.0 and has a valid Instagram username. </p>
+      </md-content>
+
+      <h2 class="text-centre">Define My Query</h2>
+
+      <md-content class="md-padding form-centre">
+      <form name="userForm">
+        <md-input-container flex>
+          <label>Place for my query:</label>
+          <textarea ng-model="user.query" columns="1" rows="1" md-maxlength="500"></textarea>
+        </md-input-container>
+          <div class="form-button" layout layout-sm="column">
+           <md-button class="md-accent md-raised md-default">Generate output</md-button>
+          </div>
+        <div layout layout-sm="column">
+          <md-input-container flex>
+            <label>Output:</label>
+            <textarea id="copytext" class="large-text" rows="4" cols="50">
+
+            </textarea>
+            <textarea id="holdtext" style="display:none;">
+            </textarea>
+          </md-input-container>
+        </div>
+        <div class="form-button" layout layout-sm="column">
+          <div layout="row" layout-margin class="left-el">
+            <div flex flex-order="1" class="left-el">
+              <md-button class="md-accent md-raised md-default">Download in a file</md-button>
+            </div>
+            <div flex flex-order="2">
+              <md-button ng-click="" class="md-accent md-raised md-default">Copy to clipboard</md-button>
             </div>
           </div>
-        </md-card>
-      </div> -->
+        </div>
+      </form>
     </md-content>
 
-    <h2 class="text-centre">Define My Query</h2>
+      <pre>
+        {{awesomeThings | json}}
+      </pre>
+    </div>
 
-    <md-content class="md-padding form-centre">
-    <form name="userForm">
-      <md-input-container flex>
-        <label>Place for my query:</label>
-        <textarea ng-model="user.query" columns="1" rows="1" md-maxlength="500"></textarea>
-      </md-input-container>
-        <div class="form-button" layout layout-sm="column">
-         <md-button class="md-accent md-raised md-default">Generate output</md-button>
+    <div ng-if="!isAuthenticated()">
+      <md-content>
+        <h1>User is not authenticated.</h1>
+        <md-button href="#/login" class="md-raised">Log in</md-button>
+        <md-button href="#/signup" class="md-raised">Sign up</md-button>
+      </md-content>
+    </div>
+
+    <div ng-if="isAuthenticated() && !currentUser.username" class="center-form panel">
+      <md-content>
+        <div class="panel-body">
+          <h5 class="text-center">Link Account</h5>
+          <p>User is authenticated via Email but does not have a valid Instagram username.</p>
+          <p>To complete the registration process they say you must link your Instagram account. If you see this text, delete the condition.</p>
         </div>
-      <div layout layout-sm="column">
-      <md-input-container flex>
-        <label>Output:</label>
-        <textarea id="copytext" class="large-text" rows="4" cols="50">
+      </md-content>
+    </div>
 
-        </textarea>
-        <textarea id="holdtext" style="display:none;">
-        </textarea>
-        </md-input-container>
-      </div>
-      <div class="form-button" layout layout-sm="column">
-        <div layout="row" layout-margin class="left-el">
-          <div flex flex-order="1" class="left-el">
-            <md-button class="md-accent md-raised md-default">Download in a file</md-button>
-          </div>
-          <div flex flex-order="2">
-            <md-button ng-click="" class="md-accent md-raised md-default">Copy to clipboard</md-button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </md-content>
-
-    <pre>
-      {{awesomeThings | json}}
-    </pre>
     <footer>
       <md-toolbar layout="row" layout-align="center center">
         <p>Just add Data ♥</p>

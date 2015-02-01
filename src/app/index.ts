@@ -34,6 +34,11 @@ module app {
     $authProvider.loginUrl = 'http://localhost:3000/auth/login';
     $authProvider.signupUrl = 'http://localhost:3000/auth/signup';
   })
+    .run(function($rootScope, $window, $auth) {
+    if ($auth.isAuthenticated()) {
+      $rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
+    }
+  })
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
       .primaryColor('blue-grey', {

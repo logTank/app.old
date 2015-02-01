@@ -10,9 +10,18 @@ module app {
 
   export class NavbarCtrl {
     /* @ngInject */
-    constructor ($scope: INavbarScope) {
+    constructor (private $scope: INavbarScope, 
+    						 private $rootscope: ILogTankRootScope, 
+    						 private $window: ng.IWindowService, 
+    						 private $auth) {
       $scope.date = new Date();
+      $scope.isAuthenticated = () => {
+      	return $auth.isAuthenticated();
+      };
+      $scope.logout = () => {
+      	$auth.logout();
+      	delete $window.localStorage.currentUser;
+      };
     }
   }
-
 }
